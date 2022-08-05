@@ -116,6 +116,14 @@ public class ConfigHolder {
 
         @Config.Comment({"Block to replace mined ores with in the miner and multiblock miner.", "Default: minecraft:cobblestone"})
         public String replaceMinedBlocksWith = "minecraft:cobblestone";
+
+        @Config.Comment({"Whether to enable Assembly Line research for recipes.", "Default: true"})
+        public boolean enableResearch = true;
+
+        @Config.Comment({"Whether the Assembly Line should require the inputs to be in order.",
+                "This does nothing if B:enableResearch is false.",
+                "Default: true"})
+        public boolean orderedAssembly = true;
     }
 
     public static class WorldGenOptions {
