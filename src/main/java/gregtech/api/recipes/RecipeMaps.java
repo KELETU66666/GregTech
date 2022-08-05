@@ -1051,6 +1051,7 @@ public class RecipeMaps {
      * Currently unused
      */
     @ZenProperty
+    @SuppressWarnings("unused")
     public static final RecipeMap<SimpleRecipeBuilder> REPLICATOR_RECIPES = new RecipeMap<>("replicator", 1, 1, 0, 1, 1, 2, 0, 1, new SimpleRecipeBuilder(), false)
             .setSlotOverlay(false, false, GuiTextures.DATA_ORB_OVERLAY)
             .setSlotOverlay(true, false, GuiTextures.ATOMIC_OVERLAY_1)
@@ -1071,7 +1072,6 @@ public class RecipeMaps {
      * Currently unused
      */
     @ZenProperty
-    @SuppressWarnings("unused")
     public static final RecipeMap<SimpleRecipeBuilder> SCANNER_RECIPES = new RecipeMap<>("scanner", 0, 2, 1, 1, 0, 1, 0, 0, new SimpleRecipeBuilder(), false)
             .setSlotOverlay(false, false, GuiTextures.DATA_ORB_OVERLAY)
             .setSlotOverlay(false, false, true, GuiTextures.SCANNER_OVERLAY)
