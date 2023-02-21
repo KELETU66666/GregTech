@@ -177,6 +177,8 @@ public class MetaTileEntityLoader {
 
         ModHandler.addShapedRecipe(true, "data_access_hatch", MetaTileEntities.DATA_ACCESS_HATCH.getStackForm(), "COC", "OHO", "COC", 'C', new UnificationEntry(OrePrefix.circuit, Tier.IV), 'O', MetaItems.TOOL_DATA_STICK.getStackForm(), 'H', MetaTileEntities.HULL[GTValues.IV].getStackForm());
         ModHandler.addShapedRecipe(true, "data_access_hatch_advanced", MetaTileEntities.ADVANCED_DATA_ACCESS_HATCH.getStackForm(), "COC", "OHO", "COC", 'C', new UnificationEntry(OrePrefix.circuit, Tier.ZPM), 'O', MetaItems.TOOL_DATA_ORB.getStackForm(), 'H', MetaTileEntities.HULL[GTValues.ZPM].getStackForm());
+=======
+        ModHandler.addShapedRecipe(true, "charcoal_pile_igniter", MetaTileEntities.CHARCOAL_PILE_IGNITER.getStackForm(), "ERE", "EHE", "FFF", 'E', new UnificationEntry(OrePrefix.plate, Materials.Bronze), 'R', new UnificationEntry(OrePrefix.rotor, Materials.Iron), 'H', MetaBlocks.STEAM_CASING.getItemVariant(BRONZE_BRICKS_HULL), 'F', new ItemStack(Items.FLINT));
 
         // STEAM MACHINES
         ModHandler.addShapedRecipe(true, "bronze_hull", MetaBlocks.STEAM_CASING.getItemVariant(BRONZE_HULL), "PPP", "PhP", "PPP", 'P', new UnificationEntry(OrePrefix.plate, Materials.Bronze));

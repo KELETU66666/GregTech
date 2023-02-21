@@ -13,6 +13,7 @@ import gregtech.api.items.gui.PlayerInventoryUIFactory;
 import gregtech.api.metatileentity.MetaTileEntityUIFactory;
 import gregtech.api.modules.GregTechModule;
 import gregtech.api.modules.IGregTechModule;
+import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.recipeproperties.TemperatureProperty;
 import gregtech.api.unification.OreDictUnifier;
@@ -128,7 +129,6 @@ public class CoreModule implements IGregTechModule {
         if (Loader.isModLoaded(GTValues.MODID_CT)) {
             logger.info("Running early CraftTweaker initialization scripts...");
             runEarlyCraftTweakerScripts();
-            MinecraftForge.EVENT_BUS.register(this);
         }
 
         // Fire Post-Material event, intended for when Materials need to be iterated over in-full before freezing
@@ -147,6 +147,7 @@ public class CoreModule implements IGregTechModule {
         MetaItems.init();
         ToolItems.init();
         MetaFluids.init();
+        ModHandler.init();
 
         /* Start MetaTileEntity Registration */
         MTE_REGISTRY.unfreeze();
@@ -224,7 +225,7 @@ public class CoreModule implements IGregTechModule {
     }
 
     @Optional.Method(modid = GTValues.MODID_CT)
-    private void runEarlyCraftTweakerScripts() {
+    private static void runEarlyCraftTweakerScripts() {
         CraftTweakerAPI.tweaker.loadScript(false, "gregtech");
     }
 
@@ -242,6 +243,8 @@ public class CoreModule implements IGregTechModule {
                 TemperatureProperty.registerCoilType(value.getCoilTemperature(), value.getMaterial(), name);
             }
         }
+
+        ModHandler.postInit();
     }
 
     @Override

@@ -23,6 +23,7 @@ import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.*;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.*;
 
 @ZenClass("mods.gregtech.material.Material")
@@ -135,6 +136,15 @@ public class Material implements Comparable<Material> {
 
     public boolean hasFlag(MaterialFlag flag) {
         return flags.hasFlag(flag);
+    }
+
+    public boolean isElement() {
+        return materialInfo.element != null;
+    }
+
+    @Nullable
+    public Element getElement() {
+        return materialInfo.element;
     }
 
     public boolean hasFlags(MaterialFlag... flags) {
@@ -258,7 +268,7 @@ public class Material implements Comparable<Material> {
     public long getMass() {
         if (materialInfo.element != null)
             return materialInfo.element.getMass();
-        if (materialInfo.componentList.size() <= 0)
+        if (materialInfo.componentList.size() == 0)
             return Elements.Tc.getMass();
         long totalMass = 0, totalAmount = 0;
         for (MaterialStack material : materialInfo.componentList) {
@@ -277,6 +287,15 @@ public class Material implements Comparable<Material> {
     public FluidStack getPlasma(int amount) {
         PlasmaProperty prop = properties.getProperty(PropertyKey.PLASMA);
         return prop == null ? null : prop.getPlasma(amount);
+    }
+
+    public double[] getNuclearCrossSections() {
+        NuclearMaterialProperty prop = properties.getProperty(PropertyKey.NUCLEAR_MATERIAL);
+        return prop == null ? null : prop.getNuclearCrossSections();
+    }
+
+    public CoolingProperty getCoolantProperties() {
+        return properties.getProperty(PropertyKey.COOLING_MATERIAL);
     }
 
     @ZenGetter("camelCaseName")
@@ -877,6 +896,16 @@ public class Material implements Comparable<Material> {
             if (!properties.hasProperty(PropertyKey.TOOL)) // cannot assign default here
                 throw new IllegalArgumentException("Material cannot have an Enchant without Tools!");
             properties.getProperty(PropertyKey.TOOL).addEnchantmentForTools(enchant, level);
+            return this;
+        }
+
+        public Builder nuclearMacroCrossSections(double fission_cs_HE, double fission_cs_LE, double capture_cs_HE, double capture_cs_LE){
+            properties.setProperty(PropertyKey.NUCLEAR_MATERIAL, new NuclearMaterialProperty(fission_cs_HE, fission_cs_LE, capture_cs_HE, capture_cs_LE));
+            return this;
+        }
+
+        public Builder nuclearCoolingProperty(double pressure, double moderatorFactor, double absorptionFactor, double boilingPoint, double temperature){
+            properties.setProperty(PropertyKey.COOLING_MATERIAL, new CoolingProperty(pressure, moderatorFactor, absorptionFactor, boilingPoint, temperature));
             return this;
         }
 

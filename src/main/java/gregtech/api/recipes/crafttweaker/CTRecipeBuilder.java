@@ -65,7 +65,7 @@ public class CTRecipeBuilder {
             if (oreDict != null) {
                 throw new IllegalArgumentException("Invalid Ore Dictionary [" + oreDict + "]: contains no items");
             } else {
-                throw new IllegalArgumentException("Invalid Item [" + ingredient.toString() + "]: item not found");
+                throw new IllegalArgumentException("Invalid Item [" + ingredient + "]: item not found");
             }
         }
     }
