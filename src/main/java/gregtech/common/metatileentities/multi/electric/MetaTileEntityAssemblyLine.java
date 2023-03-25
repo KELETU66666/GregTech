@@ -217,8 +217,8 @@ public class MetaTileEntityAssemblyLine extends RecipeMapMultiblockController {
                     particle[1].setExpired();
                 }
             }
+            beamParticles = null;
         }
-        beamParticles = null;
     }
 
     private void writeParticles(@Nonnull PacketBuffer buf) {
