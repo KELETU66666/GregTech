@@ -175,6 +175,9 @@ public class MetaTileEntityLoader {
         ModHandler.addShapedRecipe(true, "passthrough_hatch_item", MetaTileEntities.PASSTHROUGH_HATCH_ITEM.getStackForm(), " C ", "GHG", " S ", 'C', MetaItems.CONVEYOR_MODULE_HV.getStackForm(), 'G', new UnificationEntry(OrePrefix.gearSmall, Materials.Steel), 'H', MetaTileEntities.HULL[GTValues.HV].getStackForm(), 'S', OreDictNames.chestWood);
         ModHandler.addShapedRecipe(true, "passthrough_hatch_fluid", MetaTileEntities.PASSTHROUGH_HATCH_FLUID.getStackForm(), " C ", "GHG", " S ", 'C', MetaItems.ELECTRIC_PUMP_HV.getStackForm(), 'G', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.Steel), 'H', MetaTileEntities.HULL[GTValues.HV].getStackForm(), 'S', MetaBlocks.TRANSPARENT_CASING.getItemVariant(BlockGlassCasing.CasingType.TEMPERED_GLASS));
 
+        ModHandler.addShapedRecipe(true, "data_access_hatch", MetaTileEntities.DATA_ACCESS_HATCH.getStackForm(), "COC", "OHO", "COC", 'C', new UnificationEntry(OrePrefix.circuit, Tier.IV), 'O', MetaItems.TOOL_DATA_STICK.getStackForm(), 'H', MetaTileEntities.HULL[GTValues.IV].getStackForm());
+        ModHandler.addShapedRecipe(true, "data_access_hatch_advanced", MetaTileEntities.ADVANCED_DATA_ACCESS_HATCH.getStackForm(), "COC", "OHO", "COC", 'C', new UnificationEntry(OrePrefix.circuit, Tier.ZPM), 'O', MetaItems.TOOL_DATA_ORB.getStackForm(), 'H', MetaTileEntities.HULL[GTValues.ZPM].getStackForm());
+
         ModHandler.addShapedRecipe(true, "charcoal_pile_igniter", MetaTileEntities.CHARCOAL_PILE_IGNITER.getStackForm(), "ERE", "EHE", "FFF", 'E', new UnificationEntry(OrePrefix.plate, Materials.Bronze), 'R', new UnificationEntry(OrePrefix.rotor, Materials.Iron), 'H', MetaBlocks.STEAM_CASING.getItemVariant(BRONZE_BRICKS_HULL), 'F', new ItemStack(Items.FLINT));
 
         // STEAM MACHINES
@@ -317,8 +320,7 @@ public class MetaTileEntityLoader {
         // TODO Replication system
         //registerMachineRecipe(MetaTileEntities.MASS_FABRICATOR, "CFC", "QMQ", "CFC", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR);
         //registerMachineRecipe(MetaTileEntities.REPLICATOR, "EFE", "CMC", "EQE", 'M', HULL, 'Q', CABLE_QUAD, 'C', BETTER_CIRCUIT, 'F', FIELD_GENERATOR, 'E', EMITTER);
-        // TODO Assembly Line Research System
-        //registerMachineRecipe(MetaTileEntities.SCANNER, "CEC", "WHW", "CSC", 'C', BETTER_CIRCUIT, 'E', EMITTER, 'W', CABLE, 'H', HULL, 'S', SENSOR);
+        registerMachineRecipe(MetaTileEntities.SCANNER, "CEC", "WHW", "CSC", 'C', BETTER_CIRCUIT, 'E', EMITTER, 'W', CABLE, 'H', HULL, 'S', SENSOR);
         registerMachineRecipe(MetaTileEntities.GAS_COLLECTOR, "WFW", "PHP", "WCW", 'W', Blocks.IRON_BARS, 'F', MetaItems.FLUID_FILTER, 'P', PUMP, 'H', HULL, 'C', CIRCUIT);
         registerMachineRecipe(MetaTileEntities.ROCK_BREAKER, "PMW", "CHC", "GGG", 'P', PISTON, 'M', MOTOR, 'W', GRINDER, 'C', CABLE, 'H', HULL, 'G', GLASS);
 
